@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="width" id="width">
+    <input type="text" placeholder="height" id="height">
+    <input type="text" placeholder="text" id="text">
+    <input type="text" placeholder="background color" id="bgcolor">
+    <input type="text" placeholder="font color" id="font_color">
+
+    <button onclick="box_print()">Print Box</button>
+    <p id="demo"></p>
+
+    <script>
+    function box_print(){
+        var a1=document.getElementById("width").value;
+        document.getElementById("demo").style.width = a1;
+        var a2=document.getElementById("height").value;
+        document.getElementById("demo").style.height = a2;
+        var a3=document.getElementById("text").value;
+        document.getElementById("demo").innerHTML = a4;
+        var a4=document.getElementById("bgcolor").value;
+        document.getElementById("demo").style.backgroundColor = a4;
+        var a5=document.getElementById("font_color").value;
+        document.getElementById("demo").style.color = a5;
+
+
+
+}
+    
+
+    
+          </script>   
+
+    
+</body>
+</html>
