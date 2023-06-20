@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* *, *::after, *::before{
+        border: 1px solid black;
+    } */
+    </style>
+</head>
+
+<body>
+    <div class="continer">
+        <div class="row g-3">
+            <div class="col-6 mx-auto">
+                <div class="alert" role="alert" id="alert">
+                    Validaton Error!
+                </div>
+
+                <form action="" class="form-control d-flex flex-wrap gap-3">
+                    <div class="input-group gap-3">
+                        <div class="form-floating col-sm-12 col-lg">
+                            <input type="text" class="form-control input_tags" name="User Name" id="userName"
+                                placeholder="User Name">
+                            <label for="floatingInput" id="labelUserName">User Name</label>
+
+                        </div>
+                        <div class="form-floating col-sm-12 col-lg">
+                            <input type="email" class="form-control col input_tags" name="Email" id="email"
+                                placeholder="Email">
+                            <label for="floatingInput" id="labelEmail">Email Address</label>
+
+
+                        </div>
+                    </div>
+
+
+                    <select name="University" id="university" class="col-12 form-control input_tags">
+                        <option value="">Select a University</option>
+                        <option value="uet">University of Engineering & Technology, Lahore</option>
+                        <option value="nust">National Univeristy of Science & Technology</option>
+                        <option value="ucp">University of Central Punjab</option>
+                        <option value="pieas">Pakistan Institute of Engineering, Arts & Science</option>
+                    </select>
+
+
+                    <select name="Program" id="program" class="col-12 form-control input_tags">
+                        <option value="">Select a Program</option>
+                        <option value="bachlor">Bachlors</option>
+                        <option value="master">Masters</option>
+                        <option value="phd">Ph.D.</option>
+                    </select>
+
+
+                    <select name="Degree" id="degree" class="col-12 form-control input_tags">
+                        <option value="">Select a Degree</option>
+                        <option value="ME">Mechenical Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                        <option value="EE">Electrical Engineering</option>
+                        <option value="SE">Software Engineering</option>
+                    </select>
+
+                    <div class="input-group gap-3">
+                        <div class="form-floating col-sm-12 col-lg">
+                            <input type="number" class="form-control input_tags" name="Total Marks" id="totalMarks"
+                                placeholder="Total Marks">
+                            <label for="floatingInput" id="labelTotalMarks">Total Marks</label>
+
+                        </div>
+
+                        <div class="form-floating col-sm-12 col-lg">
+                            <input type="number" class="form-control input_tags col" name="Obtained Marks"
+                                id="obtainMarks" placeholder="Email">
+                            <label for="floatingPassword" id="labelObtainMarks">Obtain Marks</label>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="btn btn-success form-control" id="validate" type="button">Validate</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const alert = document.getElementById('alert')
+
+    window.addEventListener('load', () => {
+        alert.style.display = 'none'
+    })
+
+    validate.addEventListener('click', () => {
+        let tag = document.getElementsByClassName('input_tags')
+        for (let i = 0; i < tag.length; i++) {
+            let current_tag = tag[i]
+            let error = document.createElement('span')
+            let element = document.getElementById('error_' + i)
+
+            if (element) {
+                element.remove()
+            }
+            if(alert.classList.contains('alert-primary')){
+                alert.classList.remove('alert-primary')
+                alert.classList.add('alert-danger')
+            }
+
+            if (current_tag.value == "") {
+                current_tag.style.borderColor = 'red'
+                current_tag.append(error)
+                error.innerHTML = `Fill ${current_tag.getAttribute('name')}`
+                current_tag.after(error)
+                error.style.color = 'red'
+                error.setAttribute('id', 'error_' + i)
+                alert.classList.add('alert-danger')
+                alert.style.display = 'block'
+            } else if (current_tag === tag[0] && current_tag.value.length >= 25) {
+                current_tag.style.borderColor = 'red'
+                current_tag.append(error)
+                error.innerHTML = `25 Characters Only`
+                current_tag.after(error)
+                error.style.color = 'red'
+                error.setAttribute('id', 'error_' + i)
+                alert.classList.add('alert-danger')
+                alert.style.display = 'block'
+            } else if (current_tag === tag[1] && !current_tag.value.includes('@gmail.com')) {
+                current_tag.style.borderColor = 'red'
+                current_tag.append(error)
+                error.innerHTML = `Invalid`
+                current_tag.after(error)
+                error.style.color = 'red'
+                error.setAttribute('id', 'error_' + i)
+                alert.classList.add('alert-danger')
+                alert.style.display = 'block'
+            } else if (current_tag === tag[6] && parseInt(tag[6].value) > parseInt(tag[5].value)) {
+                current_tag.style.borderColor = 'red'
+                current_tag.append(error)
+                error.innerHTML = `Invalid`
+                current_tag.after(error)
+                error.style.color = 'red'
+                error.setAttribute('id', 'error_' + i)
+                alert.classList.add('alert-danger')
+                alert.style.display = 'block'
+            } else {
+                current_tag.style.borderColor = ''
+                alert.classList.add('alert-primary')
+                alert.classList.remove('alert-danger')
+            }
+            console.log(current_tag)
+        }
+
+    })
+</script>
+
+</html>

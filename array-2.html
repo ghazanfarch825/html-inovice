@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" placeholder="number" id="number_1">
+    <input type="text" placeholder="Index" id="number_index1">
+    <button onclick="Add()">Add</button>
+   <button onclick="remove()">remove</button> 
+    <p id="demo"></p>
+
+    <script>
+
+        let arr = [];
+        function Add() {
+            var number = document.getElementById("number_1").value;
+            document.getElementById("number_1").value = "";
+
+            var number_index = document.getElementById("number_index1").value;
+            document.getElementById("number_index1").value = "";
+
+            arr[number_index]=number;
+            document.getElementById("demo").innerHTML = arr;
+
+        }
+
+        function remove() {
+
+            var number = document.getElementById("number_1").value;
+            document.getElementById("number_1").value = "";
+
+            var number_index = document.getElementById("number_index1").value;
+            document.getElementById("number_index1").value = "";
+
+if (/) {
+
+} else if (){
+
+}
+
+            arr.splice(number_index, 1);
+            document.getElementById("demo").innerHTML =arr;
+
+         }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="number" placeholder="Enter Number" id="table_">
+    <button onclick="table_print()">Print</button>
+    <p id="demo"></p>
+
+    <script>
+
+            function table_print(){
+
+                var num=document.getElementById("table_").value;
+                
+
+                for (let i=1; i<=10; ++i ){
+
+                    var result = num*i;
+                
+
+                    document.getElementById("demo").innerHTML += num + "*" + i + "=" + result  + "<br>";
+
+                }
+                   
+            }
+
+
+    </script>
+
+    
+</body>
+</html>

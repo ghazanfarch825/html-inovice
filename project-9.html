@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id   ="result"></p>
+    
+    
+    <script>
+
+        var arr = [5,25,6,5,2,54,2,3,69,7];
+
+        duplicate(arr);
+        
+        function duplicate(arr){
+            
+                var unique_arr = new Set (arr);
+            var html = "";
+
+            //outer loop
+                unique_arr.forEach(element => {
+
+                    let counter = 0;
+                    // inner loop start
+                    arr.forEach(sub_element => {
+
+                        if (element == sub_element) {
+
+                            counter ++;
+                            
+                        }
+
+                        
+                    });
+                    // inner loop end
+                    if(counter>1){
+
+                    html+= element + "repeated" + counter + "times" + "<br>";
+
+
+                    };
+                    
+                });
+                // outer loop end
+
+            document.getElementById('result').innerHTML=html;
+
+
+
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

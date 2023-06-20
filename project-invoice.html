@@ -25,12 +25,12 @@
 
         <div class="col">
           <label for="" class="form-label">Amount</label>
-          <input type="number"class="form-control" name="" id="" aria-describedby="helpId" placeholder="Amount">
+          <input type="number"class="form-control" name="" id="amount" aria-describedby="helpId" placeholder="">
 
         </div>
         <div class="col">
         <label for="" class="form-label">Labour</label>
-        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+        <input type="number" class="form-control" name="" id="labour" aria-describedby="helpId" placeholder="">
 
       </div>
       
@@ -41,12 +41,12 @@
 
         <div class="col">
           <label for="" class="form-label">Tax</label>
-          <input type="text"class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+          <input type="number"class="form-control" name="" id="tax" aria-describedby="helpId" placeholder="">
 
         </div>
         <div class="col">
         <label for="" class="form-label">Discount</label>
-        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+        <input type="number" class="form-control" name="" id="discount" aria-describedby="helpId" placeholder="">
 
       </div>
       
@@ -57,15 +57,23 @@
 
         <div class="col">
           <label for="" class="form-label">Customer</label>
-          <input type="text"class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+          <input type="text"class="form-control" name="" id="customer" aria-describedby="helpId" placeholder="">
 
         </div>
         <div class="col">
         <label for="" class="form-label">Customer Phone</label>
-        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+        <input type="tel" class="form-control" name="" id="customer-phone" aria-describedby="helpId" placeholder="">
+
+       </div>
 
       </div>
-      
+
+      <div class="row justify-content-center align-items-center g-2 m-3">
+
+      <div class="col">
+       
+        <button type="button" onclick="form_submit()" class="btn btn-primary">Submit</button>
+       </div>
 
       </div>
 
@@ -82,8 +90,8 @@
     <div class="row justify-content-center align-items-center g-2 m-3 ">
 
       <h2 class="text-light">INVOICE</h2>
-      <p class="text-black-50">Customer Name: </p>
-      <p class="text-black-50">Customer Phone: </p>
+      <p class="text-black-50">Customer Name: <span id="customer-1"></span> </p>
+      <p class="text-black-50">Customer Phone: <span id="customer_phone-1"></span> </p>
    </div>
 
 
@@ -93,26 +101,37 @@
   <thead class="table-dark ">
     <tr>
       <th scope="col" class="col-2">#</th>
-      <th scope="col" class="col-3" >Customer Name</th>
+      <th scope="col" class="col-3" >Name</th>
       <th scope="col" class="col-8" colspan="2"> Price</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td scope="row">Mark</td>
-      <td colspan="2">Otto</td>
+      <td scope="row">Amount</td>
+      <td colspan="2" id="amount-1"></td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td scope="row">Jacob</td>
-      <td colspan="2">Thornton</td>
+      <td scope="row">Labour</td>
+      <td colspan="2"id="labour-1"></td>
     </tr>
     <tr>
       <th scope="row">3</th>
-      <td scope="row">Larry the Bird</td>
-      <td colspan="2">@twitter</td>
+      <td scope="row">Tax</td>
+      <td colspan="2" id="tax-1"></td>
     </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td scope="row">Discount</td>
+      <td colspan="2" id="discount-1"></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td scope="row">total</td>
+      <td colspan="2" id="total-1"></td>
+    </tr>
+
   </tbody>
 
   </table>
@@ -123,7 +142,39 @@
 
 </div>
 
-<h2>hello</h2>
+<p class="demo"></p>
+<script>
+  
+  function form_submit(){
+        var amount=Number(document.getElementById("amount").value);
+        document.getElementById("amount-1").innerHTML=amount;
+
+        var labour=Number(document.getElementById("labour").value);
+        document.getElementById("labour-1").innerHTML=labour;
+
+        var tax =Number(document.getElementById("tax").value);
+        document.getElementById("tax-1").innerHTML=tax;
+
+        var discount =Number(document.getElementById("discount").value);
+        document.getElementById("discount-1").innerHTML=discount;
+
+        var customer=document.getElementById("customer").value;
+        document.getElementById("customer-1").innerHTML=customer;
+        
+        var customer_phone=document.getElementById("customer-phone").value;
+        document.getElementById("customer_phone-1").innerHTML = customer_phone;
+let x=(amount+labour)*tax/100
+let y= (amount+labour+x)*discount/100
+        
+        document.getElementById("total-1").innerHTML = amount+labour+x-y
+
+
+let a=document.getElementById('amount')
+
+}
+
+
+</script>
 
   </main>
   <footer>

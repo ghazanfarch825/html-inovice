@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" placeholder="" id="text_add">
+    <button onclick="push()">push1</button>
+    <button onclick="pop()">pop</button> 
+    <p id="demo"></p>
+
+    <script>
+
+        let arr = [];
+        function push() {
+            var item_1 = document.getElementById("text_add").value;
+
+            // console.log(arr)
+            arr.push(item_1);
+            document.getElementById("demo").innerHTML = arr;
+            document.getElementById("text_add").value = "";
+
+        }
+
+        function pop() {
+
+            var item_1 = document.getElementById("text_add").value;
+            arr.pop(item_1);
+            document.getElementById("demo").innerHTML = arr ;
+            // document.getElementById("text_add").value = "";
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

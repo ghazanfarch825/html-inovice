@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="number" placeholder="Start Number" id="start_number">
+    <input type="number" placeholder="End Number" id="end_number">
+    <button onclick="table_print()">Print</button>
+    <table border="1">
+        <tr>
+            <th>Sr #</th>
+            <th>1st Number</th>
+            <th>2d Number</th>
+            <th>Sum</th>
+            <th>Product</th>
+            <th>Status</th>
+        </tr>
+        <tbody id="table_body">
+          
+        </tbody>
+    </table>
+
+    <script>
+       function $(id) {
+         return document.getElementById(id).value
+       }
+        /**
+         * Table to print sum product, and even/odd status
+         * 
+         **/
+            function table_print(){
+
+                var start_num=Number($("start_number"));
+                var end_num=Number(document.getElementById("end_number").value);
+                let html = '';
+                let count = 1;
+                for (let i=start_num; i<=end_num; ++i ){
+
+                    var sum = start_num+i;
+                    
+                    var product = start_num*i;
+
+                    html = html + '<tr><td> '+ count +' </td> <td> ' + start_num + ' </td> <td> ' + end_num + ' </td> <td> ' + sum + ' </td> <td> ' + product + ' </td></tr>'
+                    count++;
+                }
+                console.log(html)
+
+                /**
+                 * Show html data in the table body
+                 **/    
+                document.getElementById("table_body").innerHTML = html
+                   
+            }
+
+
+    </script>
+
+    
+</body>
+</html>
